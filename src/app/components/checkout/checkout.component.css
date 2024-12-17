@@ -1,35 +1,3 @@
-/*
-.checkout-page {
-    padding: 20px;
-    text-align: center;
-}
-
-.complete-checkout-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.complete-checkout-btn:hover {
-    background-color: #0056b3;
-}
-
-.thank-you {
-    animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}*/
 
 /* General Checkout Page Styling */
 .checkout-page {
