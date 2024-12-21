@@ -1,16 +1,17 @@
 
-
 <div class="sidebar p-3 border bg-light">
     <h3 class="text-center mb-4">Categories</h3>
 
-    
     <ul class="list-group">
         <li
             class="list-group-item d-flex align-items-center justify-content-between"
             *ngFor="let category of categories"
         >
-            
-            <div class="d-flex align-items-center">
+            <!-- Updated Code for Category Display with Navigation -->
+            <div
+                class="d-flex align-items-center cursor-pointer"
+                (click)="navigateToCategory(category.id)"
+            >
                 <img
                     [src]="category.image"
                     alt="{{ category.name }}"
@@ -20,7 +21,7 @@
                 <span class="fw-bold text-truncate">{{ category.name }}</span>
             </div>
 
-            
+            <!-- Buttons for Edit and Delete -->
             <div class="btn-group">
                 <button
                     class="btn btn-sm btn-outline-primary"
@@ -38,7 +39,7 @@
         </li>
     </ul>
 
-    
+    <!-- Error Alert -->
     <div
         *ngIf="error"
         class="alert alert-danger mt-3"
@@ -47,6 +48,7 @@
         {{ error }}
     </div>
 
+    <!-- Add Category Button -->
     <button
         class="btn btn-success w-100 mt-3"
         (click)="openAddCategoryModal()"
@@ -54,7 +56,7 @@
         + Add Category
     </button>
 
-    
+    <!-- Add/Edit Category Modal -->
     <div
         *ngIf="isCategoryModalOpen"
         class="modal fade show"
@@ -118,4 +120,3 @@
         </div>
     </div>
 </div>
-

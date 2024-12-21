@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -31,7 +32,8 @@ export class ProfileComponent implements OnInit {
   // Load profile data from backend
   loadProfileData() {
     this.isLoading = true;
-    this.profileService.getUserProfile().subscribe({
+    this.profileService.getUserProfile().subscribe({// make an HTTP request to a backend API endpoint to fetch the user's profile data.
+
       next: (profileData: any) => {
         this.profileForm.patchValue({
           name: profileData.name,
@@ -72,3 +74,5 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['']);//n used after successfully saving or updating data.
   }
 }
+
+

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../../service/product.service';
-import { CartService } from '../../service/cart.service';
+import { ProductService } from '../../service/product.service';//Handles API calls related to products
+import { CartService } from '../../service/cart.service';//Manages adding products to the cart.
 
 @Component({
   selector: 'app-product-page',
@@ -41,16 +41,16 @@ export class ProductPageComponent implements OnInit {
       if (this.categoryId) {
         this.getProducts(this.categoryId);
       } else {
-        this.router.navigate(['/category/1']); // Default to a category
+        this.router.navigate(['/category/1']); // Default to a category.....
       }
     });
   }
 
-  // Fetch Products by Category
+  // Fetch Products by Category.....
   getProducts(categoryId: string): void {
     this.productService.getProductsByCategory(categoryId).subscribe({
       next: (response) => {
-        this.products = response.data.products;
+        this.products = response.data.products;//update a fetch data from backend api
       },
       error: (err) => {
         console.error('Error fetching products:', err);
@@ -58,7 +58,7 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
-  // Open Add Product Modal
+  // Open Add Product Modal.....
   openAddProductModal(): void {
     this.isAddProductModalOpen = true;
     this.productForm.reset();

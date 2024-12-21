@@ -13,7 +13,9 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard], // Protect the main layout
+    canActivate: [AuthGuard], // Protect the main layout// will true
+
+    
     children: [
       { path: '', redirectTo: 'category/1', pathMatch: 'full' }, // Redirect root route to Electronics
       { path: 'category/:categoryId', component: ProductPageComponent }, // Dynamic category route
@@ -26,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],// just pass a array of route which will give component to renderd
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

@@ -6,11 +6,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
   private cart: any[] = [];
-  private cartSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.cart);
+  private cartSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.cart);//wrap and store current data and update the data on cart change
 
   // Observable for cart items
   getCartItems(): Observable<any[]> {
-    return this.cartSubject.asObservable();
+    return this.cartSubject.asObservable();//Allows components to subscribe and get real-time updates when the cart changes
   }
 
   // Add product to the cart
@@ -23,7 +23,7 @@ export class CartService {
       this.cart.push({ ...product, quantity: 1 }); // Add new product with quantity 1
     }
 
-    this.cartSubject.next(this.cart); // Notify observers
+    this.cartSubject.next(this.cart); // notify subscribers of the updated cart state.
   }
 
   // Get total items count
@@ -38,7 +38,7 @@ export class CartService {
 
   clearCart(): void {
     this.cart = [];
-    this.cartSubject.next(this.cart);
+    this.cartSubject.next(this.cart);//update user the cart is empty....
   }
 
 }
